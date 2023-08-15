@@ -34,6 +34,7 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+
   use({ "nyoom-engineering/nyoom.nvim" }) -- colorscheme
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
@@ -71,9 +72,9 @@ return packer.startup(function(use)
   use("github/copilot.vim") -- GitHub copilot
 
   -- snippets
-  use("L3MON4D3/LuaSnip") -- snippet engine
-  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-  use("rafamadriz/friendly-snippets") -- useful snippets
+  -- use("L3MON4D3/LuaSnip") -- snippet engine
+  -- use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  -- use("rafamadriz/friendly-snippets") -- useful snippets
 
   -- managing & installing lsp servers, linters & formatters
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
