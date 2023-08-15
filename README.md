@@ -8,7 +8,7 @@ brew uninstall neovim && brew cleanup
 
 Remove existing configurations if any
 ```
-rm -rf ~/.config/nvim
+rm -rf ~/.config/nvim ~/.local/share/nvim
 ```
 
 #### Fresh Install
