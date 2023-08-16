@@ -35,6 +35,7 @@ treesitter.setup({
     "gitignore",
     "python",
     "rust",
+    "go",
   },
 
   -- Auto install above language parsers
