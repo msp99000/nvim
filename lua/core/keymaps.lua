@@ -52,7 +52,7 @@ keymap("n", "<leader>k", ":bnext<CR>") -- Go to next buffer
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- Find files within current working directory, respects .gitignore
 keymap("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- Find string in current working directory as you type
 keymap("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- Find string under cursor in current working directory
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- List open buffers in current neovim instance
+keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>") -- List open buffers in current neovim instance
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- List available help tags
 
 -- Telescope git commands

@@ -36,7 +36,6 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim") -- packer to manage itself
 
   use("bluz71/vim-nightfly-guicolors") -- Nightfly colorscheme
-  use("shaunsingh/nyoom.nvim") -- Nyoom colorscheme
 
   use("nvim-lua/plenary.nvim") -- Lua functions that many plugins use
 
@@ -57,9 +56,6 @@ return packer.startup(function(use)
   -- File Explorer
   use("nvim-tree/nvim-tree.lua")
 
-  -- Multiline editing
-  use({ "mg979/vim-visual-multi", branch = "master" })
-
   -- VSCode like icons
   use("nvim-tree/nvim-web-devicons")
 
@@ -70,21 +66,8 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- Dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- Fuzzy finder
 
-  -- Autocompletion
-  -- use("hrsh7th/nvim-cmp") -- Completion plugin
-  -- use("hrsh7th/cmp-buffer") -- Source for text in buffer
-  -- use("hrsh7th/cmp-path") -- Source for file system paths
-
   -- CoC
   use({ "neoclide/coc.nvim", branch = "release" })
-
-  -- Bufferline
-  use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
-
-  -- Snippets
-  -- use("L3MON4D3/LuaSnip") -- Snippet engine
-  -- use("saadparwaiz1/cmp_luasnip") -- Autocompletion
-  -- use("rafamadriz/friendly-snippets") -- Useful snippets
 
   -- Mason
   use("williamboman/mason.nvim") -- In charge of managing LSP Servers, Linters & Formatters
@@ -92,7 +75,6 @@ return packer.startup(function(use)
 
   -- Configuring LSP Servers
   use("neovim/nvim-lspconfig") -- Easily configure language servers
-  -- use("hrsh7th/cmp-nvim-lsp") -- Autocompletion
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
@@ -119,7 +101,6 @@ return packer.startup(function(use)
   })
 
   -- Autoclosing
-  -- use("windwp/nvim-autopairs") -- Autoclose parenthesis, brackets, quotes, etc...
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- Autoclose tags
 
   -- Git Integration
