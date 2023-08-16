@@ -43,11 +43,10 @@ keymap("n", "<leader>sm", ":MaximizerToggle<CR>") -- Toggle split window maximiz
 
 -- Tree Toggler
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>") -- Toggle file explorer
--- keymap("n", "<TAB>", ":NvimTreeOpen<CR>") -- Toggle file explorer
 
 -- Buffer Switching
-keymap("n", "<leader>bp", ":bprev<CR>") -- Go to previous buffer
-keymap("n", "<leader>bn", ":bnext<CR>") -- Go to next buffer
+keymap("n", "<leader>c", ":bprev<CR>") -- Go to previous buffer
+keymap("n", "<leader>k", ":bnext<CR>") -- Go to next buffer
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- Find files within current working directory, respects .gitignore
