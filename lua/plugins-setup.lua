@@ -1,4 +1,8 @@
--- auto install packer if not installed
+----------------------------------------
+-- Neovim Plugins Setup
+----------------------------------------
+
+-- Auto install 'packer' if not installed
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -9,10 +13,10 @@ local ensure_packer = function()
   end
   return false
 end
+
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
+-- Autocommand to reload Neovim and install/update/remove plugins when file is saved
 vim.cmd([[ 
   augroup packer_user_config
     autocmd!
@@ -20,69 +24,75 @@ vim.cmd([[
   augroup end
 ]])
 
--- import packer safely
+-- Import 'packer' safely
 local status, packer = pcall(require, "packer")
+
 if not status then
   return
 end
 
--- add list of plugins to install
+-- Add list of plugins to install
 return packer.startup(function(use)
-  -- packer can manage itself
-  use("wbthomason/packer.nvim")
+  use("wbthomason/packer.nvim") -- packer to manage itself
 
-  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+  use("bluz71/vim-nightfly-guicolors") -- Nightfly colorscheme
+  use("shaunsingh/nyoom.nvim") -- Nyoom colorscheme
 
-  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
-
-  use({ "nyoom-engineering/nyoom.nvim" }) -- colorscheme
+  use("nvim-lua/plenary.nvim") -- Lua functions that many plugins use
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
-  use("szw/vim-maximizer") -- maximizes and restores current window
+  use("szw/vim-maximizer") -- Maximizes and restores current window
 
-  -- essential plugins
-  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
-  use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
+  -- Essential plugins
+  use("tpope/vim-surround") -- Add, Delete, Change surroundings (it's awesome)
+  use("inkarkat/vim-ReplaceWithRegister") -- Replace with register contents using motion (gr + motion)
 
-  -- commenting with gc
-  use("numToStr/Comment.nvim")
+  -- Tabs
+  use("romgrk/barbar.nvim") -- Buffer Windows
 
-  -- file explorer
+  -- Comments
+  use("numToStr/Comment.nvim") -- Commenting with 'gcc'
+
+  -- File Explorer
   use("nvim-tree/nvim-tree.lua")
 
-  -- vs-code like icons
+  -- Multiline editing
+  use({ "mg979/vim-visual-multi", branch = "master" })
+
+  -- VSCode like icons
   use("nvim-tree/nvim-web-devicons")
 
-  -- statusline
+  -- Statusline
   use("nvim-lualine/lualine.nvim")
 
-  -- fuzzy finding w/ telescope
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+  -- Fuzzy finding w/ telescope
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- Dependency for better sorting performance
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- Fuzzy finder
 
-  -- autocompletion
-  use("hrsh7th/nvim-cmp") -- completion plugin
-  use("hrsh7th/cmp-buffer") -- source for text in buffer
-  use("hrsh7th/cmp-path") -- source for file system paths
+  -- Autocompletion
+  -- use("hrsh7th/nvim-cmp") -- Completion plugin
+  -- use("hrsh7th/cmp-buffer") -- Source for text in buffer
+  -- use("hrsh7th/cmp-path") -- Source for file system paths
 
   -- CoC
   use({ "neoclide/coc.nvim", branch = "release" })
 
-  use("github/copilot.vim") -- GitHub copilot
+  -- Bufferline
+  use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 
-  -- snippets
-  -- use("L3MON4D3/LuaSnip") -- snippet engine
-  -- use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-  -- use("rafamadriz/friendly-snippets") -- useful snippets
+  -- Snippets
+  -- use("L3MON4D3/LuaSnip") -- Snippet engine
+  -- use("saadparwaiz1/cmp_luasnip") -- Autocompletion
+  -- use("rafamadriz/friendly-snippets") -- Useful snippets
 
-  -- managing & installing lsp servers, linters & formatters
-  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+  -- Mason
+  use("williamboman/mason.nvim") -- In charge of managing LSP Servers, Linters & Formatters
+  use("williamboman/mason-lspconfig.nvim") -- Bridges gap b/w Mason & lspconfig
 
-  -- configuring lsp servers
-  use("neovim/nvim-lspconfig") -- easily configure language servers
-  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  -- Configuring LSP Servers
+  use("neovim/nvim-lspconfig") -- Easily configure language servers
+  -- use("hrsh7th/cmp-nvim-lsp") -- Autocompletion
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
@@ -90,15 +100,16 @@ return packer.startup(function(use)
       { "nvim-tree/nvim-web-devicons" },
       { "nvim-treesitter/nvim-treesitter" },
     },
-  }) -- enhanced lsp uis
-  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
-  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+  }) -- Enhanced LSP UIs
 
-  -- formatting & linting
-  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+  use("jose-elias-alvarez/typescript.nvim") -- Additional functionality for typescript server (e.g. rename file & update imports)
+  use("onsails/lspkind.nvim") -- VSCode like icons for autocompletion
 
-  -- treesitter configuration
+  -- Formatting & Linting
+  use("jose-elias-alvarez/null-ls.nvim") -- Configure formatters & linters
+  use("jayp0521/mason-null-ls.nvim") -- Bridges gap b/w mason & null-ls
+
+  -- Treesitter Configuration
   use({
     "nvim-treesitter/nvim-treesitter",
     run = function()
@@ -107,12 +118,12 @@ return packer.startup(function(use)
     end,
   })
 
-  -- auto closing
-  use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+  -- Autoclosing
+  -- use("windwp/nvim-autopairs") -- Autoclose parenthesis, brackets, quotes, etc...
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- Autoclose tags
 
-  -- git integration
-  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+  -- Git Integration
+  use("lewis6991/gitsigns.nvim") -- Show line modifications on left hand side
 
   if packer_bootstrap then
     require("packer").sync()

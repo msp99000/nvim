@@ -1,41 +1,47 @@
-local opt = vim.opt -- for conciseness
+--------------------------------------
+-- Neovim Options
+--------------------------------------
 
--- line numbers
-opt.relativenumber = false -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
--- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
+local opt = vim.opt -- For conciseness
 
--- line wrapping
-opt.wrap = false -- disable line wrapping
+-- Line numbers
+opt.relativenumber = true -- Show relative line numbers
+opt.number = true -- Shows absolute line number on cursor line (when relative number is on)
 
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+-- Tabs & indentation
+opt.tabstop = 2 -- 2 Spaces for tabs (prettier default)
+opt.shiftwidth = 2 -- 2 Spaces for indent width
+opt.expandtab = true -- Expand tab to spaces
+opt.autoindent = true -- Copy indent from current line when starting new one
 
--- cursor line
-opt.cursorline = true -- highlight the current cursor line
+-- Line wrapping
+opt.wrap = false -- Disable line wrapping
 
--- appearance
+-- Search settings
+opt.ignorecase = true -- Ignore case when searching
+opt.smartcase = true -- If you include mixed case in your search, assumes you want case-sensitive
 
--- turn on termguicolors for nightfly colorscheme to work
--- (have to use iterm2 or any other true color terminal)
+-- Cursor line
+opt.cursorline = true -- Highlight the current cursor line
+
+
+----------------------- Appearance -----------------------
+
+-- Turn on termguicolors for nightfly colorscheme to work
+-- (Use 'iterm2' or any other true color Terminal)
 opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.background = "dark" -- Colorschemes that can be light or dark will be made dark
+opt.signcolumn = "yes" -- Show sign column so that text doesn't shift
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+-- Backspace
+opt.backspace = "indent,eol,start" -- Allow backspace on indent, end of line or insert mode start position
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- Clipboard
+opt.clipboard:append("unnamedplus") -- Use system clipboard as default register
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+-- Split windows
+opt.splitright = true -- Split vertical window to the right
+opt.splitbelow = true -- Split horizontal window to the bottom
 
-opt.iskeyword:append("-") -- consider string-string as whole word
+opt.iskeyword:append("-") -- Consider string-string as whole word
