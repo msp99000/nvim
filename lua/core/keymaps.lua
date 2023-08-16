@@ -43,6 +43,7 @@ keymap("n", "<leader>sm", ":MaximizerToggle<CR>") -- Toggle split window maximiz
 
 -- Tree Toggler
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>") -- Toggle file explorer
+-- keymap("n", "<TAB>", ":NvimTreeOpen<CR>") -- Toggle file explorer
 
 -- Buffer Switching
 keymap("n", "<leader>bp", ":bprev<CR>") -- Go to previous buffer
@@ -63,6 +64,3 @@ keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- List current chang
 
 -- Restart LSP server
 keymap("n", "<leader>rs", ":LspRestart<CR>") -- Mapping to restart LSP if necessary
-
--- Buffer Tabs
-keymap("n", "<leader>bt", ":BufferTabsToggle<CR>") -- Toggle Buffer Tabs
