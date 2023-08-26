@@ -22,6 +22,7 @@ return {
     telescope.setup({
       -- configure custom mappings
       defaults = {
+        prompt_prefix = "➤",
         path_display = { "truncate" },
         mappings = {
           i = {
