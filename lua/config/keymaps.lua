@@ -6,6 +6,9 @@ local keymap = vim.keymap.set
 -- Neotree toggle shortcut
 keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
+-- Use "qq" to clear search highlights
+keymap("n", "qq", "<cmd>nohl<CR>")
+
 -- Window resize using Shift-arrow keys
 keymap("n", "<S-Up>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
 keymap("n", "<S-Down>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
@@ -13,7 +16,7 @@ keymap("n", "<S-Left>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window
 keymap("n", "<S-Right>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
 
 -- Lazy
-keymap("n", "<leader>q", "<cmd>Lazy<cr>", { desc = "Lazy" })
+keymap("n", "<leader>q", "<cmd> Lazy<cr>", { desc = "Lazy" })
 
 -- Buffer Switch
 keymap("n", "<S-h>", "<cmd> BufferLineCyclePrev<CR>")

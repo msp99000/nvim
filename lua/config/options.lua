@@ -20,6 +20,9 @@ opt.smartcase = true -- If you include mixed case in your search, assumes you wa
 -- Cursor line
 opt.cursorline = true -- Highlight the current cursor line
 
+-- Formatter timeout
+vim.lsp.buf.format({ timeout_ms = 2000 })
+
 ----------------------------------------------------------
 -- Appearance
 ----------------------------------------------------------
