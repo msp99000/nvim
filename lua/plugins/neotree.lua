@@ -8,7 +8,7 @@ return {
     },
     opts = {
       window = {
-        width = 25
+        width = 30
       },
       default_component_configs = {
         indent = {
