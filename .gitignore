@@ -1,6 +1,9 @@
 # Lazy auto generated files
 lazy-lock.json
 
+# Test files (demo.*)
+demo.*
+
 # Compiled Lua sources
 luac.out
 
