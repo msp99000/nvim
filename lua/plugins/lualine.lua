@@ -11,7 +11,7 @@ return {
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
-      lualine_c = {"file", "diff", "diagnostics"},
+      lualine_c = { "file", "diff", "diagnostics" },
       lualine_x = { "searchcount", "encoding", "progress", "filetype" },
       lualine_y = { "location" },
       lualine_z = { "hostname" },
@@ -26,10 +26,9 @@ return {
     },
     options = {
       theme = lualine_tokyonight,
-      ignore_focus = {"neo-tree", "alpha-nvim"},
-      disabled_filetypes = {
-        "alpha"
-      }
-    }
-  }
+      ignore_focus = { "neo-tree", "alpha-nvim" },
+      disabled_filetypes = {},
+    },
+    extensions = { "neo-tree", "lazy" },
+  },
 }
