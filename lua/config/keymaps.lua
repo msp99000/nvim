@@ -10,17 +10,17 @@ keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 keymap("n", "qq", "<cmd>nohl<CR>")
 
 -- Window resize using Shift-arrow keys
-keymap("n", "<S-Up>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
-keymap("n", "<S-Down>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
-keymap("n", "<S-Left>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width" })
-keymap("n", "<S-Right>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
+keymap("n", "<S-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
+keymap("n", "<S-j>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
+keymap("n", "<S-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width" })
+keymap("n", "<S-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
 
 -- Lazy
 keymap("n", "<leader>q", "<cmd> Lazy<cr>", { desc = "Lazy" })
 
 -- Buffer Switch
-keymap("n", "<S-h>", "<cmd> BufferLineCyclePrev<CR>")
-keymap("n", "<S-l>", "<cmd> BufferLineCycleNext<CR>")
+keymap("n", "<S-Left>", "<cmd> BufferLineCyclePrev<CR>")
+keymap("n", "<S-Right>", "<cmd> BufferLineCycleNext<CR>")
 
 -- Terminal Mappings
 keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
@@ -44,8 +44,8 @@ keymap("n", "<leader>\\", "<C-W>v", { desc = "Split window right", remap = true 
 -- Delete single character without copying into register
 keymap("n", "x", '"_x')
 
--- Delete all text in the buffer
-keymap("n", "<leader>dd", "<cmd>%d<CR>")
+-- Select all text in the buffer
+keymap("n", "<leader>ss", "ggVG")
 
 -- Indendations
 keymap("v", "[", "<gv")
@@ -60,6 +60,9 @@ keymap("n", "<leader><CR>", "o<esc>")
 -- Go to first character of line
 keymap("n", "00", "^")
 
+-- Source File
+keymap("n", "<leader>rr", "<cmd>source %<CR>", { desc = "Source File" })
+
 -- Line Navigation
 keymap("n", "<S-j>", ":m .+1<CR>==") -- move line up(n)
 keymap("n", "<S-k>", ":m .-2<CR>==") -- move line down(n)
@@ -68,6 +71,9 @@ keymap("v", "<S-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
 -- Go to end of line
 keymap("n", "11", "$")
+
+-- Launch Mason
+keymap("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Launch Mason" })
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" }) -- find files within current working directory, respects .gitignore
