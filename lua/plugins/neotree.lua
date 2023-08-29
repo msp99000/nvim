@@ -13,8 +13,8 @@ return {
     default_component_configs = {
       indent = {
         with_expanders = true,
-        expander_collapsed = "",
-        expander_expanded = "",
+        expander_collapsed = "▶",
+        expander_expanded = "▼",
       },
       git_status = {
         symbols = {
