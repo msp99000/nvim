@@ -1,6 +1,9 @@
 # Lazy auto generated files
 lazy-lock.json
 
+# lua lsp config
+.luarc.json
+
 # Test files (demo.*)
 demo.*
 
