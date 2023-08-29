@@ -1,5 +1,3 @@
--- Module imports
-
+require("config.options")
 require("config.keymaps")
 require("setup")
-require("config.options")
