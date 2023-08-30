@@ -7,14 +7,25 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
+    sources = {
+      "filesystem",
+      "git_status"
+    },
+    source_selector = {
+      winbar = true,
+      statusline = false
+    },
     window = {
       width = 30,
     },
     default_component_configs = {
+      container = {
+        enable_character_fade = false
+      },
       indent = {
         with_expanders = true,
         expander_collapsed = "▶",
-        expander_expanded = "▼",
+        expander_expanded = "◢",
       },
       git_status = {
         symbols = {
