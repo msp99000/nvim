@@ -26,12 +26,14 @@ return {
           "typescript",
           "tsx",
           "yaml",
+          "rst",
           "html",
           "css",
           "prisma",
           "markdown",
           "markdown_inline",
           "svelte",
+          "ninja",
           "regex",
           "graphql",
           "bash",
@@ -42,7 +44,8 @@ return {
           "python",
           "sql",
           "solidity",
-          "rust"
+          "rust",
+          "toml"
         },
         -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
         context_commentstring = {
@@ -55,4 +58,3 @@ return {
     end,
   },
 }
-
