@@ -3,7 +3,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-    { "folke/neodev.nvim", opts = {} },
+    {
+      "folke/neodev.nvim",
+      config = function()
+        require("neodev").setup()
+      end
+    },
   },
   opts = {
     autoformat = false,
