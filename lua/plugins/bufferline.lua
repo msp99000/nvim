@@ -11,11 +11,11 @@ return {
   "akinsho/bufferline.nvim",
   opts = {
     options = {
-      buffer_close_icon = "󰅖",
-      modified_icon = "●",
-      close_icon = "",
-      left_trunc_marker = "",
-      right_trunc_marker = "",
+      buffer_close_icon = " ",
+      modified_icon = " ●",
+      close_icon = " ",
+      left_trunc_marker = " ",
+      right_trunc_marker = " ",
 
       close_command = function(n)
         require("mini.bufremove").delete(n, false)
@@ -25,7 +25,7 @@ return {
       end,
 
       diagnostics = "coc",
-      always_show_bufferline = false,
+      always_show_bufferline = true,
 
       diagnostics_indicator = function(_, _, diag)
         local icons = {
@@ -44,7 +44,7 @@ return {
           filetype = "neo-tree",
           text = "File Explorer",
           text_align = "center",
-          separator = false,
+          separator = true,
         },
       },
       separator_style = "slant",
