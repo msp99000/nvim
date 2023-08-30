@@ -26,9 +26,13 @@ return {
     },
     options = {
       theme = lualine_tokyonight,
-      ignore_focus = { "neo-tree", "alpha-nvim" },
-      disabled_filetypes = {},
+      globalstatus = true,
+      ignore_focus = { "neo-tree", "alpha.nvim" },
+      disabled_filetypes = {
+        winbar = {},
+        statusline = { 'neo-tree', 'alpha' },
+      },
     },
-    extensions = { "neo-tree", "lazy" },
+    -- extensions = { "neo-tree", "lazy" },
   },
 }
