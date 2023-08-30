@@ -7,20 +7,23 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
 -- Use "qq" to clear search highlights
-keymap("n", "qq", "<cmd>nohl<CR>")
+keymap("n", "<esc><esc>", "<cmd>nohl<CR>")
 
 -- Window resize using Shift-arrow keys
-keymap("n", "<S-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
-keymap("n", "<S-j>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
-keymap("n", "<S-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width" })
-keymap("n", "<S-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
+keymap("n", "<Tab-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
+keymap("n", "<Tab-j>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
+keymap("n", "<Tab-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width" })
+keymap("n", "<Tab-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
 
 -- Lazy
-keymap("n", "<leader>q", "<cmd> Lazy<cr>", { desc = "Lazy" })
+keymap("n", "<leader>ll", "<cmd> Lazy<cr>", { desc = "Lazy" })
 
 -- Buffer Switch
 keymap("n", "<S-Left>", "<cmd> BufferLineCyclePrev<CR>")
 keymap("n", "<S-Right>", "<cmd> BufferLineCycleNext<CR>")
+
+keymap("n", "<leader>t", "<cmd>BufDel<CR>", { desc = "Delete current buffer" })
+keymap("n", "<leader>ta", "<cmd>BufDelAll<CR>", { desc = "Delete all buffers" })
 
 -- Terminal Mappings
 keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
@@ -60,9 +63,6 @@ keymap("n", "vv", "<S-v>", { desc = "Switch to visual line mode" })
 -- Insert blank line without leaving normal mode
 keymap("n", "<leader><CR>", "o<esc>")
 
--- Go to first character of line
-keymap("n", "00", "^")
-
 -- Source File
 keymap("n", "<leader>rr", "<cmd>source %<CR>", { desc = "Source File" })
 
@@ -71,6 +71,9 @@ keymap("n", "<S-j>", ":m .+1<CR>==")     -- move line up(n)
 keymap("n", "<S-k>", ":m .-2<CR>==")     -- move line down(n)
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 keymap("v", "<S-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
+
+-- Go to first character of line
+keymap("n", "00", "^")
 
 -- Go to end of line
 keymap("n", "11", "$")
