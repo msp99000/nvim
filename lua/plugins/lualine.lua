@@ -11,7 +11,7 @@ return {
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
-      lualine_c = { "file", "diff", "diagnostics" },
+      lualine_c = { "filename", "diff", "diagnostics" },
       lualine_x = { "searchcount", "encoding", "progress", "filetype" },
       lualine_y = { "location" },
       lualine_z = { "hostname" },
