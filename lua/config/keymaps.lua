@@ -22,8 +22,12 @@ keymap("n", "<leader>ll", "<cmd> Lazy<cr>", { desc = "Lazy" })
 keymap("n", "<S-Left>", "<cmd> BufferLineCyclePrev<CR>")
 keymap("n", "<S-Right>", "<cmd> BufferLineCycleNext<CR>")
 
+-- Buffer Delete
 keymap("n", "<leader>t", "<cmd>BufDel<CR>", { desc = "Delete current buffer" })
 keymap("n", "<leader>ta", "<cmd>BufDelAll<CR>", { desc = "Delete all buffers" })
+
+-- Buffer rename
+keymap("n", "<leader>br", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename current buffer" })
 
 -- Terminal Mappings
 keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
