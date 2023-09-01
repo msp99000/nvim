@@ -10,6 +10,9 @@ opt.shiftwidth = 2    -- Two spaces for indent width
 opt.expandtab = true  -- Expand tab to spaces
 opt.autoindent = true -- Copy indent from current line when starting new one
 
+-- Remove "~" in empty lines
+vim.opt.fillchars = { eob = " " }
+
 -- Line wrapping
 opt.wrap = false -- Disable line wrapping
 
