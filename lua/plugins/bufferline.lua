@@ -44,7 +44,8 @@ return {
           filetype = "neo-tree",
           text = "File Explorer",
           text_align = "center",
-          separator = true,
+          separator = false,
+          padding = 1
         },
       },
       separator_style = "slant",
