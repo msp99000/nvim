@@ -28,5 +28,9 @@
     "typeParameter": "󰊄 "
   },
 
-  "snippets.priority": 1
+  "snippets.priority": 1,
+  "diagnostic.warningSign": " ",
+  "diagnostic.hintSign": " ",
+  "diagnostic.errorSign": " ",
+  "diagnostic.infoSign": " "
 }
