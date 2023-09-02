@@ -1,11 +1,4 @@
--- vim.cmd([[
--- augroup MyColors
--- autocmd!
--- autocmd ColorScheme * highlight BufferLineFill guibg=#191724
--- autocmd ColorScheme * highlight BufferLineSeparator guifg=#191724
--- autocmd ColorScheme * highlight BufferLineSeparatorSelected guifg=#191724
--- augroup END
--- ]])
+-- Bufferline Config
 
 return {
   "akinsho/bufferline.nvim",
@@ -45,7 +38,6 @@ return {
           text = "File Explorer",
           text_align = "center",
           separator = false,
-          padding = 1
         },
       },
       separator_style = "slant",
