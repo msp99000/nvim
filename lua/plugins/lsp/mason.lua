@@ -1,9 +1,12 @@
 return {
+
+  -- Mason config
   {
     "williamboman/mason.nvim",
-    -- dependencies = {
-    --   "williamboman/mason-lspconfig.nvim",
-    -- },
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "jay-babu/mason-null-ls.nvim",
+    },
     config = function()
       -- enable mason
       require("mason").setup()
@@ -13,7 +16,7 @@ return {
   -- Mason lspconfig
   {
     "williamboman/mason-lspconfig.nvim",
-
+    lazy = false,
     config = function()
       local mason_lspconfig = require("mason-lspconfig")
 
@@ -55,5 +58,6 @@ return {
         automatic_installation = true,
       })
     end
-  }
+  },
+
 }
