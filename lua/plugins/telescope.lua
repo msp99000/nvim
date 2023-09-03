@@ -8,6 +8,7 @@ return {
     "nvim-telescope/telescope-ui-select.nvim",
     "nvim-tree/nvim-web-devicons",
     "ThePrimeagen/harpoon",
+    "sharkdp/fd",
   },
   config = function()
     -- import telescope plugin safely
@@ -21,11 +22,25 @@ return {
 
     -- configure telescope
     telescope.setup({
-      -- configure custom mappings
       defaults = {
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        },
+        ripgrep_arguments = {
+          'rg',
+          '--hidden',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case'
+        },
         prompt_prefix = "▶ ",
         selection_caret = "▶ ",
         path_display = { "truncate" },
+        -- configure custom mappings
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,                       -- move to prev result
