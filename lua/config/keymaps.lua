@@ -7,7 +7,7 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
 -- Use "qq" to clear search highlights
-keymap("n", "<esc><esc>", "<cmd>nohl<CR>")
+keymap("n", "<leader>nn", "<cmd>nohl<CR>")
 
 -- Window resize using Shift-arrow keys
 keymap("n", "<Tab-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
