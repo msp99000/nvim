@@ -30,16 +30,16 @@ keymap("n", "<leader>ta", "<cmd>BufDelAll<CR>", { desc = "Delete all buffers" })
 keymap("n", "<leader>br", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename current buffer" })
 
 -- Terminal Mappings
-keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
-keymap("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
-keymap("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
-keymap("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
-keymap("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
-keymap("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-keymap("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+-- keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+-- keymap("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+-- keymap("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+-- keymap("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+-- keymap("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+-- keymap("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+-- keymap("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 -- Toggleterm
-keymap("n", "<S-\\>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Toggleterm" })
+keymap("n", "<leader>.", "<cmd> ToggleTerm<CR>", { desc = "Toggle Toggleterm" })
 
 -- Windows: Move to window using the <ctrl> hjkl keys
 keymap("n", "<leader><Left>", "<C-w>h", { desc = "Go to left window", remap = true })
