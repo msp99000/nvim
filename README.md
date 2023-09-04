@@ -25,3 +25,11 @@ brew install neovim
 ```
 git clone https://github.com/msp99000/nvim.git ~/.config/nvim
 ```
+
+### Coc Config
+
+Run the following in command mode to install the required coc servers
+
+```
+CocInstall coc-pyright coc-css coc-json coc-rust-analyzer coc-tsserver coc-eslint coc-pairs coc-prettier coc-svelte coc-prisma
+```
