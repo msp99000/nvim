@@ -25,7 +25,7 @@ return {
       lualine_z = {},
     },
     options = {
-      theme = lualine_tokyonight,
+      -- theme = lualine_tokyonight,
       globalstatus = true,
       ignore_focus = { "neo-tree", "alpha.nvim" },
       disabled_filetypes = {
