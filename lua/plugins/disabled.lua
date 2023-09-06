@@ -1,3 +1,3 @@
 return {
-  { "utilyre/barbecue.nvim", enabled = false },
+  -- { "utilyre/barbecue.nvim", enabled = false },
 }
