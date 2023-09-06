@@ -1,4 +1,11 @@
+------------------------------------------------------------
+--------                S E T U P                   --------
+------------------------------------------------------------
+
+-- Lazy Path
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+-- Bootstrap Lazy
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -9,6 +16,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 -- Lazy setup
@@ -23,6 +31,6 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
   },
   install = { colorscheme = { "tokyonight" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
-  -- change_detection = { notify = false }, -- automatically check for plugin updates
+  checker = { enabled = true },         -- automatically check for plugin updates
+  change_detection = { notify = true }, -- notifies of config change
 })
