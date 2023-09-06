@@ -1,138 +1,105 @@
-return {}
+return {
+  "utilyre/barbecue.nvim",
+  name = "barbecue",
+  version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+  },
 
--- local extra_icons = {
---   File = "󰈙 ",
---   Module = " ",
---   Namespace = "󰌗 ",
---   Package = " ",
---   Class = "󰌗 ",
---   Method = "󰆧 ",
---   Property = " ",
---   Field = " ",
---   Constructor = " ",
---   Enum = "󰕘",
---   Interface = "󰕘",
---   Function = "󰊕 ",
---   Variable = "󰆧 ",
---   Constant = "󰏿 ",
---   String = "󰀬  or ",
---   Number = "󰎠 ",
---   Boolean = "◩ ",
---   Array = "󰅪 ",
---   Object = "󰅩 ",
---   Key = "󰌋 ",
---   Null = "󰟢 ",
---   EnumMember = "  or ",
---   Struct = "󰌗 ",
---   Event = "  or ",
---   Operator = "󰆕 ",
---   TypeParameter = "󰊄 ",
--- }
---
--- -- if 1 == 2 then
--- --   return (extra_icons)
--- -- end
---
--- return {
---   "utilyre/barbecue.nvim",
---   name = "barbecue",
---   version = "*",
---   dependencies = {
---     "SmiteshP/nvim-navic",
---     "nvim-tree/nvim-web-devicons", -- optional dependency
---   },
---
---   opts = {
---     -- configurations go here
---     symbols = {
---       ---Modification indicator.
---       ---
---       ---@type string
---       modified = "●",
---
---       ---Truncation indicator.
---       ---
---       ---@type string
---       ellipsis = "…",
---
---       ---Entry separator.
---       ---
---       ---@type string
---       separator = "➤",
---     },
---
---     config = function()
---       local c = require("tokyonight.colors").setup({ transform = true })
---       require("barbecue").setup({
---         theme = {
---           -- separator = { fg = "#EC4623" },
---           normal = { bg = c.none, fg = c.fg_dark },
---
---           ellipsis = { fg = c.dark5 },
---           separator = { fg = c.dark5 },
---           modified = { fg = c.warning },
---
---           dirname = { fg = c.dark5 },
---           basename = { fg = c.fg_dark, bold = true },
---           context = { fg = c.fg_dark },
---
---           context_file = { fg = c.fg_dark },
---           context_module = { fg = c.yellow },
---           context_namespace = { fg = c.yellow },
---           context_package = { fg = c.blue },
---           context_class = { fg = c.orange },
---           context_method = { fg = c.blue },
---           context_property = { fg = c.green1 },
---           context_field = { fg = c.green1 },
---           context_constructor = { fg = c.blue },
---           context_enum = { fg = c.orange },
---           context_interface = { fg = c.orange },
---           context_function = { fg = c.blue },
---           context_variable = { fg = c.magenta },
---           context_constant = { fg = c.magenta },
---           context_string = { fg = c.green },
---           context_number = { fg = c.orange },
---           context_boolean = { fg = c.orange },
---           context_array = { fg = c.orange },
---           context_object = { fg = c.orange },
---           context_key = { fg = c.purple },
---           context_null = { fg = c.blue1 },
---           context_enum_member = { fg = c.green1 },
---           context_struct = { fg = c.orange },
---           context_event = { fg = c.orange },
---           context_operator = { fg = c.green1 },
---           context_type_parameter = { fg = c.green1 },
---         }
---       })
---     end,
---
---     kinds = {
---       File = " ",
---       Module = " ",
---       Namespace = "󰌗 ",
---       Package = " ",
---       Class = " ",
---       Method = " ",
---       Property = " ",
---       Field = " ",
---       Constructor = " ",
---       Enum = " ",
---       Interface = " ",
---       Function = "󰊕 ",
---       Variable = " ",
---       Constant = "󰏿 ",
---       String = "󰀬 ",
---       Number = " ",
---       Boolean = " ",
---       Array = " ",
---       Object = " ",
---       Key = "󰌋 ",
---       Null = "󰟢 ",
---       EnumMember = " ",
---       Struct = " ",
---       Event = " ",
---       Operator = " ",
---       TypeParameter = "󰊄 ",
---     },
---   },
--- }
+  opts = {
+
+    -- attach navic
+    attach_navic = true,
+
+    -- configurations go here
+    symbols = {
+      ---Modification indicator.
+      ---
+      ---@type string
+      modified = "●",
+
+      ---Truncation indicator.
+      ---
+      ---@type string
+      ellipsis = "…",
+
+      ---Entry separator.
+      ---
+      ---@type string
+      separator = " ",
+    },
+
+    theme = {
+      -- base
+      normal = { fg = "#96c5f7" },
+
+      -- these highlights correspond to symbols table from config
+      ellipsis = { fg = "#737aa2" },
+      separator = { fg = "#98E2C6" },
+      modified = { fg = "#737aa2" },
+
+      -- these highlights represent the _text_ of three main parts of barbecue
+      dirname = { fg = "#96c5f7" },
+      basename = { bold = true },
+      context = {},
+
+      -- these highlights are used for context/navic icons
+      context_file = { fg = "#ac8fe4" },
+      context_module = { fg = "#e0af68" },
+      context_namespace = { fg = "#e0af68" },
+      context_package = { fg = "#7aa2f7" },
+      context_class = { fg = "#1EFFBC" },
+      context_method = { fg = "#7aa2f7" },
+      context_property = { fg = "#1EFFBC" },
+      context_field = { fg = "#1EFFBC" },
+      context_constructor = { fg = "#ac8fe4" },
+      context_enum = { fg = "#ac8fe4" },
+      context_interface = { fg = "#ac8fe4" },
+      context_function = { fg = "#7aa2f7" },
+      context_variable = { fg = "#ac8fe4" },
+      context_constant = { fg = "#ff007c" },
+      context_string = { fg = "#73daca" },
+      context_number = { fg = "#9ece6a" },
+      context_boolean = { fg = "#ff9e64" },
+      context_array = { fg = "#ac8fe4" },
+      context_object = { fg = "#e0af68" },
+      context_key = { fg = "#9ece6a" },
+      context_null = { fg = "#2ac3de" },
+      context_enum_member = { fg = "#ac8fe4" },
+      context_struct = { fg = "#ff9e64" },
+      context_event = { fg = "#ff9e64" },
+      context_operator = { fg = "#73daca" },
+      context_type_parameter = { fg = "#73daca" },
+    },
+
+    kinds = {
+      File = " ",
+      Module = " ",
+      Namespace = "󰌗 ",
+      Package = " ",
+      Class = " ",
+      Method = " ",
+      Property = " ",
+      Field = " ",
+      Constructor = " ",
+      Enum = " ",
+      Interface = " ",
+      Function = "󰡱 ",
+      Variable = " ",
+      Constant = "󰏿 ",
+      String = " ",
+      Number = " ",
+      Boolean = " ",
+      Array = " ",
+      Object = " ",
+      Key = "󰌋 ",
+      Null = "󰟢 ",
+      EnumMember = " ",
+      Struct = " ",
+      Event = " ",
+      Operator = " ",
+      TypeParameter = "󰊄 ",
+    },
+
+  }
+}
