@@ -17,7 +17,7 @@ return {
         require("mini.bufremove").delete(n, false)
       end,
 
-      diagnostics = "coc",
+      diagnostics = "nvim_lsp",
       always_show_bufferline = true,
 
       diagnostics_indicator = function(_, _, diag)
@@ -35,7 +35,7 @@ return {
       offsets = {
         {
           filetype = "neo-tree",
-          text = "File Explorer",
+          text = " ",
           text_align = "center",
           separator = false,
         },
