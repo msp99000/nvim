@@ -1,17 +1,5 @@
 return {
   {
-    "nvimdev/lspsaga.nvim",
-    event = "VeryLazy",
-    opts = {
-      symbol_in_winbar = {
-        enable = true,
-      },
-      lightbulb = {
-        enable = true,
-      },
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
