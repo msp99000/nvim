@@ -1,13 +1,24 @@
 -- Set leader key to <SPACE>
 vim.g.mapleader = " "
+local keymap = vim.keymap.set -- for conciseness
 
-local keymap = vim.keymap.set
+-- Function for buffer delete
+local bufdel = function()
+  local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), 'buflisted(v:val)'))
+
+  if buffer_count == 1 then
+    vim.cmd('bd | Alpha')
+    vim.cmd('Neotree close')
+  else
+    vim.cmd('bp | bd#')
+  end
+end
 
 -- Neotree toggle shortcut
 keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
--- Use "qq" to clear search highlights
-keymap("n", "<leader>nn", "<cmd>nohl<CR>")
+-- Use "<ESC>" to clear search highlights
+keymap("n", "<ESC>", ":noh<CR>")
 
 -- Window resize using Shift-arrow keys
 keymap("n", "<Tab-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
@@ -18,25 +29,20 @@ keymap("n", "<Tab-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window 
 -- Lazy
 keymap("n", "<leader>ll", "<cmd> Lazy<cr>", { desc = "Lazy" })
 
+-- Colorizer toggle
+keymap("n", "<leader>cc", ":ColorizerToggle <CR>", { desc = "Toggle Colorizer" })
+
 -- Buffer Switch
 keymap("n", "<S-Left>", "<cmd> BufferLineCyclePrev<CR>")
 keymap("n", "<S-Right>", "<cmd> BufferLineCycleNext<CR>")
 
 -- Buffer Delete
+keymap("n", "<leader>x", bufdel, { desc = "Delete current buffer" })
 keymap("n", "<leader>t", "<cmd>BufDel<CR>", { desc = "Delete current buffer" })
 keymap("n", "<leader>ta", "<cmd>BufDelAll<CR>", { desc = "Delete all buffers" })
 
 -- Buffer rename
 keymap("n", "<leader>br", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename current buffer" })
-
--- Terminal Mappings
--- keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
--- keymap("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
--- keymap("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
--- keymap("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
--- keymap("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
--- keymap("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
--- keymap("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 -- Toggleterm
 keymap("n", "<leader>.", "<cmd> ToggleTerm<CR>", { desc = "Toggle Toggleterm" })
