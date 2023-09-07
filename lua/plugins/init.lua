@@ -4,16 +4,6 @@
 
 local plugins = {
 
-  -- Colorscheme
-  {
-    "folke/tokyonight.nvim",
-    event = "VimEnter",
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme tokyonight-night]]) -- load colorscheme
-    end
-  },
-
   -- Dashboard
   {
     "goolord/alpha-nvim",
@@ -21,6 +11,15 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require "plugins.config.alpha"
+    end
+  },
+
+  -- Colorscheme
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme tokyonight-night]]) -- load colorscheme
     end
   },
 
@@ -109,33 +108,6 @@ local plugins = {
     end
   },
 
-  -- Trouble
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = {
-      { "<leader>tt", "<cmd>TroubleToggle<CR>" },
-    },
-  },
-
-  -- Toggleterm
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    config = true,
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      size = 15,
-      open_mapping = [[<S-\\>]],
-      shade_filetypes = {},
-      shade_terminals = true,
-      shading_factor = "1",
-      start_in_insert = false,
-      persist_size = true,
-      direction = "horizontal",
-    },
-  },
-
   -- Nvim-cmp
   {
     "hrsh7th/nvim-cmp",
@@ -213,6 +185,24 @@ local plugins = {
     opts = require "plugins.config.indentline"
   },
 
+  -- Toggleterm
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = true,
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      size = 15,
+      open_mapping = [[<S-\\>]],
+      shade_filetypes = {},
+      shade_terminals = true,
+      shading_factor = "1",
+      start_in_insert = false,
+      persist_size = true,
+      direction = "horizontal",
+    },
+  },
+
   -- Colorizer
   {
     "NvChad/nvim-colorizer.lua",
@@ -253,21 +243,22 @@ local plugins = {
       },
     },
     init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "help",
-          "alpha",
-          "dashboard",
-          "neo-tree",
-          "Trouble",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
-        },
+      vim.api.nvim_create_autocmd(
+        "FileType", {
+          pattern = {
+            "help",
+            "alpha",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+          },
         callback = function()
-          vim.b.miniindentscope_disable = true
+         vim.b.miniindentscope_disable = true
         end,
       })
     end,
