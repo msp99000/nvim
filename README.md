@@ -14,7 +14,7 @@ Remove existing configurations and swap files if any
 rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
 ```
 
-#### Fresh Install
+#### Fresh Install Neovim
 
 ```
 brew install neovim
@@ -26,10 +26,4 @@ brew install neovim
 git clone https://github.com/msp99000/nvim.git ~/.config/nvim
 ```
 
-### Coc Config
-
-Run the following in command mode to install the required coc servers
-
-```
-CocInstall coc-pyright coc-css coc-json coc-rust-analyzer coc-tsserver coc-eslint coc-pairs coc-prettier coc-svelte coc-prisma
-```
+Wait sometime till all the dependencies are loaded. Don't worry if it throws some errors as it's the first run.
