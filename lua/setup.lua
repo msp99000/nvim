@@ -23,13 +23,12 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" },
-    -- { import = "plugins.config.lsp" },
   },
   defaults = {
     lazy = false,
     version = false, -- always use the latest git commit
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "tokyonight-night" } },
   checker = { enabled = true },         -- automatically check for plugin updates
   change_detection = { notify = true }, -- notifies of config change
 })
