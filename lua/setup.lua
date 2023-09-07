@@ -37,6 +37,16 @@ require("lazy").setup({
 -- Plugin Keymaps
 local keymap = vim.keymap.set
 
+-- Colorizer toggle
+keymap("n", "<leader>cc", ":ColorizerToggle <CR>", { desc = "Toggle Colorizer" })
+
+-- Lazy
+keymap("n", "<leader>ll", "<cmd> Lazy<cr>", { desc = "Lazy" })
+
+-- Buffer Switch
+keymap("n", "<S-Left>", "<cmd> BufferLineCyclePrev<CR>")
+keymap("n", "<S-Right>", "<cmd> BufferLineCycleNext<CR>")
+
 -- Neotree toggle shortcut
 keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc =  "Neotree Toggle" })
 
