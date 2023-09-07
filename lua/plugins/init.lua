@@ -10,11 +10,7 @@ local plugins = {
     event = "VimEnter",
     priority = 1000,
     config = function()
-      -- Load colorscheme
-      vim.cmd([[colorscheme tokyonight]])
-      require("tokyonight").setup {
-        style = "night"
-      }
+      vim.cmd([[colorscheme tokyonight-night]]) -- load colorscheme
     end
   },
 
@@ -43,7 +39,7 @@ local plugins = {
   {
     'akinsho/bufferline.nvim',
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = require "plugins.config.bufferline"
   },
 
@@ -118,7 +114,7 @@ local plugins = {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle<CR>" },
+      { "<leader>tt", "<cmd>TroubleToggle<CR>" },
     },
   },
 
@@ -201,43 +197,20 @@ local plugins = {
   -- Noice
   {
     "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      {
-        "rcarriga/nvim-notify",
-        opts = {
-          timeout = 500
-        }
-      }
-    },
-  },
-
-  -- TODO Comments
-  {
-    "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    event = { "BufReadPost", "BufNewFile" },
-    config = true,
-    keys = {
-      { "]t",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-      { "[t",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-      { "<leader>xt", "<cmd>TodoTrouble<cr>",                              desc = "Todo (Trouble)" },
-      { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",      desc = "Todo/Fix/Fixme (Trouble)" },
-      { "<leader>st", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
-      { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",    desc = "Todo/Fix/Fixme" },
-    },
+      "rcarriga/nvim-notify",
+    }
   },
 
   -- Indentline
   {
     "lukas-reineke/indent-blankline.nvim",
     opts = require "plugins.config.indentline"
-  },
-
-  -- Vim-Illuminate
-  {
-    "RRethy/vim-illuminate",
-    event = { "BufReadPost", "BufNewFile" }
   },
 
   -- Colorizer
@@ -300,7 +273,7 @@ local plugins = {
     end,
   },
 
-  -- Comment
+  -- Surround
   {
     'echasnovski/mini.surround',
     version = '*',
@@ -311,7 +284,6 @@ local plugins = {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
   },
-
 }
 
 return plugins
