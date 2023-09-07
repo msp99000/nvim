@@ -1,19 +1,19 @@
--- Set leader key to <SPACE>
+-- Set <Space> as the 'leader' key
 vim.g.mapleader = " "
 
 local keymap = vim.keymap.set -- for conciseness
 
 -- Function for buffer delete
--- local bufdel = function()
---   local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), 'buflisted(v:val)'))
---
---   if buffer_count == 1 then
---     vim.cmd('bd | Alpha')
---     vim.cmd('Neotree close')
---   else
---     vim.cmd('bp | bd#')
---   end
--- end
+local bufdel = function()
+  local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), 'buflisted(v:val)'))
+
+  if buffer_count == 1 then
+    vim.cmd('bd | Alpha')
+    vim.cmd('Neotree close')
+  else
+    vim.cmd('bp | bd#')
+  end
+end
 
 -- Use "<ESC>" to clear search highlights
 keymap("n", "<ESC>", ":noh<CR>")
@@ -25,10 +25,13 @@ keymap("n", "<Tab-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window 
 keymap("n", "<Tab-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
 
 -- Buffer Delete
-keymap("n", "<leader>x", ":bp | bd# <CR>", { desc = "Delete current buffer" })
+keymap("n", "<leader>x", bufdel , { desc = "Delete current buffer" })
 
 -- Buffer rename
 keymap("n", "<leader>br", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename current buffer" })
+
+-- Buffer format
+keymap("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format()<CR>")
 
 -- Windows: Move to window using the <ctrl> hjkl keys
 keymap("n", "<leader><Left>", "<C-w>h", { desc = "Go to left window", remap = true })
