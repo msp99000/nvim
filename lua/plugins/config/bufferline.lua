@@ -1,5 +1,6 @@
 local opts = {
   options = {
+    mode = "buffers",
     buffer_close_icon = " ",
     modified_icon = " ●",
     close_icon = " ",
@@ -36,8 +37,8 @@ local opts = {
         separator = false,
       },
     },
-    separator_style = "slant",
-    themable = true,
+    separator_style = " ",
+    themable = false,
     hover = {
       enabled = false,
       delay = 200,
