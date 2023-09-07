@@ -1,5 +1,6 @@
 -- Set leader key to <SPACE>
 vim.g.mapleader = " "
+
 local keymap = vim.keymap.set -- for conciseness
 
 -- Function for buffer delete
@@ -22,16 +23,6 @@ keymap("n", "<Tab-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" }
 keymap("n", "<Tab-j>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
 keymap("n", "<Tab-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width" })
 keymap("n", "<Tab-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
-
--- Lazy
-keymap("n", "<leader>ll", "<cmd> Lazy<cr>", { desc = "Lazy" })
-
--- Colorizer toggle
-keymap("n", "<leader>cc", ":ColorizerToggle <CR>", { desc = "Toggle Colorizer" })
-
--- Buffer Switch
-keymap("n", "<S-Left>", "<cmd> BufferLineCyclePrev<CR>")
-keymap("n", "<S-Right>", "<cmd> BufferLineCycleNext<CR>")
 
 -- Buffer Delete
 keymap("n", "<leader>x", ":bp | bd# <CR>", { desc = "Delete current buffer" })
