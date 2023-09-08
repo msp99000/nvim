@@ -14,14 +14,26 @@ local plugins = {
 		end,
 	},
 
-	-- Colorscheme
+	-- Tokyonight colorscheme
 	{
 		"folke/tokyonight.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
 			vim.cmd([[colorscheme tokyonight-night]]) -- load colorscheme
 		end,
 	},
+
+	-- Nightfly colorscheme
+	-- {
+	-- 	"bluz71/vim-nightfly-colors",
+	-- 	name = "nightfly",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme nightfly")
+	-- 	end,
+	-- },
 
 	-- Barbecue
 	{
@@ -165,6 +177,12 @@ local plugins = {
 			require("plugins.config.null-ls")
 		end,
 	},
+
+	-- Codeium (Code completion)
+{
+  'Exafunction/codeium.vim',
+  event = 'BufEnter'
+},
 
 	-- Noice
 	{
