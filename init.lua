@@ -1,3 +1,4 @@
-require("core")
+require("core.keymaps")
+require("core.options")
 require("setup")
-require("ui")
+require("ui.icons")
