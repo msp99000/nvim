@@ -27,3 +27,8 @@ git clone https://github.com/msp99000/nvim.git ~/.config/nvim
 ```
 
 Wait sometime till all the dependencies are loaded. Don't worry if it throws some errors as it's the first run.
+
+#### Setting up Code completion
+
+After the neovim setup is complete, run the following command in the terminal `Codeium Auth`
+This will take you to a web page, copy the key and paste it here.
