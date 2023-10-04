@@ -1,6 +1,6 @@
 !# bin/bash
 
-# MacOS installation
+ MacOS installation
 brew uninstall neovim && brew cleanup
 
 # Remove Neovim files, swap files and cache
