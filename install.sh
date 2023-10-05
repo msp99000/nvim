@@ -7,7 +7,7 @@ brew uninstall neovim && brew cleanup
 echo("Removing the Neovim files, swap files and cache")
 rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
 
-# Install Neovim
+# Reinstall Neovim
 echo("Reinstalling Neovim")
 brew install neovim
 
