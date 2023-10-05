@@ -11,6 +11,6 @@ rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
 echo("Reinstalling Neovim")
 brew install neovim
 
- Clone the repo
+# Clone the repo
 echo("Cloning the repo")
 git clone https://github.com/meuralnetwork/nvim.git ~/.config/nvim
