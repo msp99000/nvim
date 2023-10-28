@@ -144,7 +144,12 @@ local plugins = {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
+			{
+				"folke/neoconf.nvim",
+				cmd = "Neoconf",
+				config = false,
+				dependencies = { "nvim-lspconfig" },
+			},
 			{
 				"folke/neodev.nvim",
 				config = function()
@@ -179,10 +184,10 @@ local plugins = {
 	},
 
 	-- Codeium (Code completion)
-{
-  'Exafunction/codeium.vim',
-  event = 'BufEnter'
-},
+	{
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
+	},
 
 	-- Noice
 	{
@@ -200,7 +205,11 @@ local plugins = {
 	-- Indentline
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		opts = require("plugins.config.indentline"),
+		main = "ibl",
+		-- config = function()
+		-- 	require("plugins.config.indentline")
+		-- end,
+		opts = require("plugins.config.ibl"),
 	},
 
 	-- Toggleterm
