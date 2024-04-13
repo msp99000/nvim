@@ -1,6 +1,6 @@
 local opts = {
 	options = {
-		mode = "buffers",
+		mode = "tabs",
 		buffer_close_icon = " ",
 		modified_icon = " ●",
 		close_icon = " ",
