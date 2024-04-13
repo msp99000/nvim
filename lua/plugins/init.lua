@@ -174,6 +174,15 @@ local plugins = {
 		end,
 	},
 
+	-- Mason Lspconfig
+	-- {
+	-- 	"williamboman/mason-lspconfig.nvim",
+	-- 	lazy = false,
+	-- 	opts = {
+	-- 		auto_install = true,
+	-- 	},
+	-- },
+
 	-- Null-ls
 	{
 		"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
@@ -300,6 +309,19 @@ local plugins = {
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
+	},
+
+	-- Which Key
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 500
+		end,
+
+		opts = {},
 	},
 }
 
