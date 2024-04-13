@@ -318,7 +318,7 @@ local plugins = {
 
 		init = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 500
+			vim.o.timeoutlen = 750
 		end,
 
 		opts = {},
