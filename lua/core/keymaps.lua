@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap.set -- for conciseness
 
--- Function for buffer delete
+-- Function to delete buffer
 local bufdel = function()
 	local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr("$")), "buflisted(v:val)"))
 
