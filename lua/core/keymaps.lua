@@ -5,14 +5,14 @@ local keymap = vim.keymap.set -- for conciseness
 
 -- Function for buffer delete
 local bufdel = function()
-  local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), 'buflisted(v:val)'))
+	local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr("$")), "buflisted(v:val)"))
 
-  if buffer_count == 1 then
-    vim.cmd('bd | Alpha')
-    vim.cmd('Neotree close')
-  else
-    vim.cmd('bp | bd#')
-  end
+	if buffer_count == 1 then
+		vim.cmd("bd | Alpha")
+		vim.cmd("Neotree close")
+	else
+		vim.cmd("bp | bd#")
+	end
 end
 
 -- Use "<ESC>" to clear search highlights
@@ -25,7 +25,7 @@ keymap("n", "<Tab-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window 
 keymap("n", "<Tab-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
 
 -- Buffer Delete
-keymap("n", "<leader>x", bufdel , { desc = "Delete current buffer" })
+keymap("n", "<leader>x", bufdel, { desc = "Delete current buffer" })
 
 -- Buffer rename
 keymap("n", "<leader>br", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename current buffer" })
@@ -63,8 +63,8 @@ keymap("n", "<leader><CR>", "o<esc>")
 keymap("n", "<leader>rr", "<cmd>source %<CR>", { desc = "Source File" })
 
 -- Line Navigation
-keymap("n", "<S-j>", ":m .+1<CR>==")     -- move line up(n)
-keymap("n", "<S-k>", ":m .-2<CR>==")     -- move line down(n)
+keymap("n", "<S-j>", ":m .+1<CR>==") -- move line up(n)
+keymap("n", "<S-k>", ":m .-2<CR>==") -- move line down(n)
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 keymap("v", "<S-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
@@ -73,3 +73,6 @@ keymap("n", "11", "^")
 
 -- Go to end of line
 keymap("n", "00", "$")
+
+-- Go to last line of the buffer
+keymap("n", "ll", "G")
