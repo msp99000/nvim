@@ -168,6 +168,7 @@ local plugins = {
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"jayp0521/mason-null-ls.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 		config = function()
 			require("plugins.config.mason")
@@ -323,6 +324,74 @@ local plugins = {
 
 		opts = {},
 	},
+
+	-- TODO comments
+	{
+		"folke/todo-comments.nvim",
+		events = { "BufReadPre", "BufNewFile" },
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			local todo_comments = require("todo-comments")
+
+			-- Keymaps
+			local keymap = vim.keymap.set
+			keymap("n", "]t", function()
+				todo_comments.jump_next()
+			end, { desc = "Next todo comment" })
+
+			keymap("n", "[t", function()
+				todo_comments.jump_prev()
+			end, { desc = "Previous todo comment" })
+
+			keymap("n", "<leader>ft", ":TodoTelescope<CR>", { desc = "Todo comments" })
+
+			todo_comments.setup()
+		end,
+	},
+
+	-- Trouble
+	{
+		"folke/trouble.nvim",
+		cmd = "Trouble",
+		dependencies = { "kyazdani42/nvim-web-devicons", "folke/todo-comments.nvim" },
+		keys = {
+			{ "<leader>tt", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble" },
+			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble workspace" },
+			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble document" },
+			{ "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble quickfix" },
+			{ "<leader>tL", "<cmd>TroubleToggle loclist<cr>", desc = "Trouble loclist" },
+			{ "<leader>tl", "<cmd>TroubleToggle lsp_references<cr>", desc = "Trouble LSP references" },
+		},
+	},
+
+	-- Rust
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
+		end,
+	},
+
+	-- Rust LSP
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^4", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
+
+	--Rust Tools
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	ft = "rust",
+	-- 	dependencies = "neovim/nvim-lspconfig",
+	-- 	opts = function()
+	-- 		return require("plugins.config.rust-tools")
+	-- 	end,
+	-- 	config = function(_, opts)
+	-- 		require("rust-tools").setup(opts)
+	-- 	end,
+	-- },
 }
 
 return plugins
