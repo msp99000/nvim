@@ -6,7 +6,8 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local keymap = vim.keymap -- for conciseness
 
 local opts = { noremap = true, silent = true }
-local on_attach = function(client, bufnr)
+
+local on_attach = function(bufnr)
 	opts.buffer = bufnr
 
 	-- set keybinds
@@ -155,3 +156,17 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
+
+-- configure rust server
+-- lspconfig["rust_analyzer"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	filetypes = { "rust" },
+-- 	settings = {
+-- 		["rust-analyzer"] = {
+-- 			checkOnSave = {
+-- 				command = "clippy",
+-- 			},
+-- 		},
+-- 	},
+-- })
