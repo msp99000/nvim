@@ -32,7 +32,7 @@ mason_lspconfig.setup({
 		"emmet_ls",
 		"prismals",
 		"pyright",
-		"rust-analyzer",
+		"rust_analyzer",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
@@ -57,5 +57,7 @@ mason_tool_installer.setup({
 		"stylua",
 		"isort",
 		"black",
+		"pylint",
+		"eslint_d",
 	},
 })
