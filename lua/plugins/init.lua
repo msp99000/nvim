@@ -378,20 +378,13 @@ local plugins = {
 		"mrcjkb/rustaceanvim",
 		version = "^4", -- Recommended
 		lazy = false, -- This plugin is already lazy
+		ft = { "rust" },
 	},
 
-	--Rust Tools
-	-- {
-	-- 	"simrat39/rust-tools.nvim",
-	-- 	ft = "rust",
-	-- 	dependencies = "neovim/nvim-lspconfig",
-	-- 	opts = function()
-	-- 		return require("plugins.config.rust-tools")
-	-- 	end,
-	-- 	config = function(_, opts)
-	-- 		require("rust-tools").setup(opts)
-	-- 	end,
-	-- },
+	{
+		"mfussenegger/nvim-dap",
+		lazy = false,
+	},
 }
 
 return plugins
