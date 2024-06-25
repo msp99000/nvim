@@ -7,48 +7,49 @@ local keymap = vim.keymap -- for conciseness
 
 local opts = { noremap = true, silent = true }
 
-local on_attach = function(bufnr)
-	opts.buffer = bufnr
+local on_attach = function(client, bufnr) -- Include 'client' parameter
+	-- Ensure buffer number is passed correctly
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
-	opts.desc = "Show LSP references"
-	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+	bufopts.desc = "Show LSP references"
+	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", bufopts) -- show definition, references
 
-	opts.desc = "Go to declaration"
-	keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+	bufopts.desc = "Go to declaration"
+	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts) -- go to declaration
 
-	opts.desc = "Show LSP definitions"
-	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+	bufopts.desc = "Show LSP definitions"
+	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", bufopts) -- show lsp definitions
 
-	opts.desc = "Show LSP implementations"
-	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+	bufopts.desc = "Show LSP implementations"
+	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", bufopts) -- show lsp implementations
 
-	opts.desc = "Show LSP type definitions"
-	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+	bufopts.desc = "Show LSP type definitions"
+	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", bufopts) -- show lsp type definitions
 
-	opts.desc = "See available code actions"
-	keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+	bufopts.desc = "See available code actions"
+	keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, bufopts) -- see available code actions, in visual mode will apply to selection
 
-	opts.desc = "Smart rename"
-	keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+	bufopts.desc = "Smart rename"
+	keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts) -- smart rename
 
-	opts.desc = "Show buffer diagnostics"
-	keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+	bufopts.desc = "Show buffer diagnostics"
+	keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", bufopts) -- show diagnostics for file
 
-	opts.desc = "Show line diagnostics"
-	keymap.set("n", "<leader>D", vim.diagnostic.open_float, opts) -- show diagnostics for line
+	bufopts.desc = "Show line diagnostics"
+	keymap.set("n", "<leader>D", vim.diagnostic.open_float, bufopts) -- show diagnostics for line
 
-	opts.desc = "Go to previous diagnostic"
-	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+	bufopts.desc = "Go to previous diagnostic"
+	keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts) -- jump to previous diagnostic in buffer
 
-	opts.desc = "Go to next diagnostic"
-	keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+	bufopts.desc = "Go to next diagnostic"
+	keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts) -- jump to next diagnostic in buffer
 
-	opts.desc = "Show documentation for what is under cursor"
-	keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+	bufopts.desc = "Show documentation for what is under cursor"
+	keymap.set("n", "<leader>d", vim.lsp.buf.hover, bufopts) -- show documentation for what is under cursor
 
-	opts.desc = "Restart LSP"
-	keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+	bufopts.desc = "Restart LSP"
+	keymap.set("n", "<leader>rs", ":LspRestart<CR>", bufopts) -- mapping to restart lsp if necessary
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -63,110 +64,46 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "html" },
-	init_options = {
-		configurationSection = { "html", "css", "javascript" },
-		embeddedLanguages = {
-			css = true,
-			javascript = true,
-		},
-		provideFormatter = true,
-	},
-})
-
--- configure typescript server with plugin
-lspconfig["tsserver"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure svelte server
-lspconfig["svelte"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure prisma orm server
-lspconfig["prismals"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure graphql language server
-lspconfig["graphql"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-})
-
--- configure emmet language server
-lspconfig["emmet_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-	init_options = {
-		html = {
-			options = {
-				["bem.enabled"] = true,
-			},
+-- Configure servers
+local servers = {
+	html = {
+		filetypes = { "html" },
+		init_options = {
+			configurationSection = { "html", "css", "javascript" },
+			embeddedLanguages = { css = true, javascript = true },
+			provideFormatter = true,
 		},
 	},
-})
-
--- configure python server
-lspconfig["pyright"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "python" },
-})
-
--- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = { -- custom settings for lua
-		Lua = {
-			-- make the language server recognize "vim" global
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				-- make language server aware of runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
+	tsserver = {},
+	cssls = {},
+	tailwindcss = {},
+	svelte = {},
+	prismals = {},
+	graphql = {
+		filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+	},
+	emmet_ls = {
+		filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+		init_options = { html = { options = { ["bem.enabled"] = true } } },
+	},
+	pyright = { filetypes = { "python" } },
+	lua_ls = {
+		settings = {
+			Lua = {
+				diagnostics = { globals = { "vim" } },
+				workspace = {
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.stdpath("config") .. "/lua"] = true,
+					},
 				},
 			},
 		},
 	},
-})
+}
 
--- configure rust server
--- lspconfig["rust_analyzer"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	filetypes = { "rust" },
--- 	settings = {
--- 		["rust-analyzer"] = {
--- 			checkOnSave = {
--- 				command = "clippy",
--- 			},
--- 		},
--- 	},
--- })
+for server, config in pairs(servers) do
+	config.capabilities = capabilities
+	config.on_attach = on_attach
+	lspconfig[server].setup(config)
+end
