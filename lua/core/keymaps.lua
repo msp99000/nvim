@@ -69,10 +69,10 @@ keymap("v", "<S-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 keymap("v", "<S-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
 -- Go to first character of line
-keymap("n", "11", "^")
+keymap("n", "1", "^")
 
 -- Go to end of line
-keymap("n", "00", "$")
+keymap("n", "0", "$")
 
 -- Go to last line of the buffer
 keymap("n", "ll", "G")
