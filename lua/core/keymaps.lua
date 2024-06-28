@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap.set -- for conciseness
 
+-- Change register to system clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- Function to delete buffer
 local bufdel = function()
 	local buffer_count = vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr("$")), "buflisted(v:val)"))
@@ -17,12 +20,6 @@ end
 
 -- Use "<ESC>" to clear search highlights
 keymap("n", "<ESC>", ":noh<CR>")
-
--- Window resize using Shift-arrow keys
-keymap("n", "<Tab-k>", "<cmd>resize +5<cr>", { desc = "Increase window height" })
-keymap("n", "<Tab-j>", "<cmd>resize -5<cr>", { desc = "Decrease window height" })
-keymap("n", "<Tab-h>", "<cmd>vertical resize -5<cr>", { desc = "Decrease window width" })
-keymap("n", "<Tab-l>", "<cmd>vertical resize +5<cr>", { desc = "Increase window width" })
 
 -- Buffer Delete
 keymap("n", "<leader>x", bufdel, { desc = "Delete current buffer" })
@@ -61,12 +58,6 @@ keymap("n", "<leader><CR>", "o<esc>")
 
 -- Source File
 keymap("n", "<leader>rr", "<cmd>source %<CR>", { desc = "Source File" })
-
--- Line Navigation
-keymap("n", "<S-j>", ":m .+1<CR>==") -- move line up(n)
-keymap("n", "<S-k>", ":m .-2<CR>==") -- move line down(n)
-keymap("v", "<S-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
-keymap("v", "<S-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
 -- Go to first character of line
 keymap("n", "1", "^")
