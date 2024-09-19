@@ -4,6 +4,7 @@ lazy-lock.json
 # Test files (demo.*)
 tests/
 demo.*
+demo
 
 # Compiled Lua sources
 luac.out
