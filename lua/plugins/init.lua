@@ -24,17 +24,6 @@ local plugins = {
 		end,
 	},
 
-	-- Nightfly colorscheme
-	-- {
-	-- 	"bluz71/vim-nightfly-colors",
-	-- 	name = "nightfly",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd("colorscheme nightfly")
-	-- 	end,
-	-- },
-
 	-- Barbecue
 	{
 		"utilyre/barbecue.nvim",
@@ -175,15 +164,6 @@ local plugins = {
 		end,
 	},
 
-	-- Mason Lspconfig
-	-- {
-	-- 	"williamboman/mason-lspconfig.nvim",
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		auto_install = true,
-	-- 	},
-	-- },
-
 	-- Null-ls
 	{
 		"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
@@ -216,9 +196,6 @@ local plugins = {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		-- config = function()
-		-- 	require("plugins.config.indentline")
-		-- end,
 		opts = require("plugins.config.ibl"),
 	},
 
