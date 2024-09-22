@@ -67,3 +67,12 @@ keymap("n", "0", "$")
 
 -- Go to last line of the buffer
 keymap("n", "ll", "G")
+
+-- Yank one time and paste many times
+keymap({ "n", "v" }, "p", '"_dP')
+
+-- Yank to system clipboard
+keymap({ "n", "v" }, "<leader>y", [["+y]])
+
+-- Paste from system clipboard
+keymap({ "n", "v" }, "<leader>p", [["+p]])
