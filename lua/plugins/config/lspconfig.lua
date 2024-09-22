@@ -74,9 +74,11 @@ local servers = {
 			provideFormatter = true,
 		},
 	},
-	tsserver = {},
+	ts_ls = {},
 	cssls = {},
-	tailwindcss = {},
+	tailwindcss = {
+		filetypes = { "html", "css", "javascriptreact", "typescriptreact", "vue", "svelte" },
+	},
 	svelte = {},
 	prismals = {},
 	graphql = {
