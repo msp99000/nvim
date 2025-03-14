@@ -173,12 +173,6 @@ local plugins = {
 		end,
 	},
 
-	-- Codeium (Code completion)
-	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
-	},
-
 	-- Noice
 	{
 		"folke/noice.nvim",
