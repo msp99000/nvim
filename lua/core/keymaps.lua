@@ -53,6 +53,9 @@ keymap("v", "]", ">gv")
 -- Switch to Visual Line Mode
 keymap("n", "vv", "<S-v>", { desc = "Switch to visual line mode" })
 
+-- Navigate halfway to document
+keymap("n", ",,", "50% zz", { desc = "Switch to visual line mode" })
+
 -- Insert blank line without leaving normal mode
 keymap("n", "<leader><CR>", "o<esc>")
 
