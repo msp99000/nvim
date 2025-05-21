@@ -64,6 +64,21 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
+-- Configure diagnostic display
+vim.diagnostic.config({
+	virtual_text = true, -- Show inline diagnostics
+	signs = true, -- Show signs in the sign column
+	underline = true, -- Underline the diagnostic text
+	update_in_insert = false, -- Don't update diagnostics in insert mode
+	severity_sort = true, -- Sort diagnostics by severity
+	float = {
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
+
 -- Configure servers
 local servers = {
 	html = {
