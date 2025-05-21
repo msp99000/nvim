@@ -156,7 +156,6 @@ local plugins = {
 		"williamboman/mason.nvim",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-			"jayp0521/mason-null-ls.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 		config = function()
@@ -164,13 +163,18 @@ local plugins = {
 		end,
 	},
 
-	-- Null-ls
+	-- Mason
 	{
-		"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
-		event = { "BufReadPre", "BufNewFile" },
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			require("plugins.config.null-ls")
+			require("plugins.config.lint")
 		end,
+	},
+
+	-- Mason
+	{
+		"mhartington/formatter.nvim",
 	},
 
 	-- Noice
