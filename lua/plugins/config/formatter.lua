@@ -20,6 +20,19 @@ require("formatter").setup({
     },
     html = {
       require("formatter.filetypes.html").prettier,
+      function()
+        return {
+          exe = "prettier",
+          args = {
+            "--stdin-filepath",
+            util.escape_path(util.get_current_buffer_file_path()),
+            "--single-quote",
+            "--print-width",
+            "100",
+          },
+          stdin = true,
+        }
+      end,
     },
     svelte = {
       require("formatter.filetypes.svelte").prettier,
