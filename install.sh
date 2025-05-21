@@ -13,4 +13,4 @@ brew install neovim
 
 # Clone the repo
 echo("Cloning the repo")
-git clone https://github.com/meuralnetwork/nvim.git ~/.config/nvim
+git clone https://github.com/msp99000/nvim.git ~/.config/nvim
