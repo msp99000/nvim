@@ -175,6 +175,10 @@ local plugins = {
 	-- Mason
 	{
 		"mhartington/formatter.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		config = function()
+			require("plugins.config.formatter")
+		end,
 	},
 
 	-- Noice
@@ -327,8 +331,11 @@ local plugins = {
 	-- Trouble
 	{
 		"folke/trouble.nvim",
-		cmd = "Trouble",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = { "kyazdani42/nvim-web-devicons", "folke/todo-comments.nvim" },
+		config = function()
+			require("plugins.config.trouble")
+		end,
 		keys = {
 			{ "<leader>tt", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble" },
 			{ "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble workspace" },
@@ -354,6 +361,26 @@ local plugins = {
 		version = "^4", -- Recommended
 		lazy = false, -- This plugin is already lazy
 		ft = { "rust" },
+		config = function()
+			vim.g.rustaceanvim = {
+				server = {
+					on_attach = function(client, bufnr)
+						-- Only attach navic if it hasn't been attached yet
+						if not vim.b.navic_attached then
+							require("nvim-navic").attach(client, bufnr)
+							vim.b.navic_attached = true
+						end
+					end,
+				},
+				diagnostics = {
+					enabled = true,
+					-- Enable inlay hints
+					inlay_hints = {
+						enabled = true,
+					},
+				},
+			}
+		end,
 	},
 
 	{
