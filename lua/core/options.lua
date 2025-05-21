@@ -24,7 +24,7 @@ opt.smartcase = true  -- If you include mixed case in your search, assumes you w
 opt.cursorline = true -- Highlight the current cursor line
 
 -- Formatter timeout
-vim.lsp.buf.format({ timeout_ms = 5000 })
+-- vim.lsp.buf.format({ timeout_ms = 5000 })
 
 ----------------------------------------------------------
 -- Appearance
