@@ -66,17 +66,12 @@ end
 
 -- Configure diagnostic display
 vim.diagnostic.config({
-	virtual_text = true, -- Show inline diagnostics
-	signs = true, -- Show signs in the sign column
-	underline = true, -- Underline the diagnostic text
-	update_in_insert = false, -- Don't update diagnostics in insert mode
-	severity_sort = true, -- Sort diagnostics by severity
-	float = {
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = { border = "rounded" }
 })
 
 -- Configure servers
