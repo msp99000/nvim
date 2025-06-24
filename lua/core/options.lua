@@ -23,8 +23,6 @@ opt.smartcase = true -- If you include mixed case in your search, assumes you wa
 -- Cursor line
 opt.cursorline = false -- Highlight the current cursor line
 
--- opt.guicursor = "n-v-c:block-blinkon0,i:block-blinkon0,r:block-blinkon0,a:block-blinkon0"
-
 -- Formatter timeout
 -- vim.lsp.buf.format({ timeout_ms = 5000 })
 
@@ -49,3 +47,14 @@ opt.splitbelow = true -- Split horizontal window to the bottom
 
 -- Turn off swapfile
 opt.swapfile = false
+
+-- Cursor Fix
+-- Disable Neovim's default cursor shape control
+-- vim.opt.guicursor = ""
+
+-- Force underline cursor always
+-- vim.api.nvim_create_autocmd({ "VimEnter", "InsertEnter", "InsertLeave", "VimLeave" }, {
+-- 	callback = function()
+-- 		vim.fn.system("echo -ne '\\e[4 q'")
+-- 	end,
+-- })
