@@ -111,8 +111,8 @@ lualine.setup({
 					info = " ",
 				},
 			},
-			{ "fileformat", symbols = { unix = "  " } },
-			{ "encoding" },
+			-- { "fileformat", symbols = {} },
+			-- { "encoding" },
 			{ "filetype" },
 		},
 		lualine_y = {
