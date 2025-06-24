@@ -9,6 +9,8 @@ if [ "$OS" == "Darwin" ]; then
     rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
     echo "Reinstalling Neovim via brew..."
     brew install neovim
+    brew install luacheck
+
 elif [ "$OS" == "Linux" ]; then
     echo "Detected Linux. Uninstalling Neovim via apt-get..."
     sudo apt-get remove neovim -y
@@ -17,6 +19,7 @@ elif [ "$OS" == "Linux" ]; then
     rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim
     echo "Reinstalling Neovim via apt-get..."
     sudo apt-get update && sudo apt-get install neovim -y
+
 else
     echo "Unsupported OS: $OS"
     exit 1
